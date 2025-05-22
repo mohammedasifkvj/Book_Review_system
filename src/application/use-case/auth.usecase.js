@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 import { createUser, findUserByEmail } from '../../infrastructure/repositories/user.repository.js';
 import { generateTokens } from '../../application/services/auth.service.js';
@@ -14,6 +14,7 @@ export const signUp = async ({ name, email, password }) => {
 
 export const login = async ({ email, password }) => {
   const user = await findUserByEmail(email);
+  console.log("use-case",user)
   if (!user) throw new Error('Invalid email or password');
 
   const match = await bcrypt.compare(password, user.password);

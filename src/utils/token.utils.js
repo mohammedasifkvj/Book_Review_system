@@ -21,7 +21,7 @@ export const generateAccessToken = (userId) =>
  */
 export const generateRefreshToken = (userId) =>
   jwt.sign({ id: userId, jti: uuidv4() }, JWT_REFRESH_SECRET, {
-    expiresIn: JWT_REFRESH_EXPIRES_IN,
+    expiresIn: "7d",
   });
 
 /**

@@ -15,7 +15,7 @@ const app = express();
 //Middleware
 app.use(rateLimiter);              
 app.use(corsOptions);              
-              
+
 app.use(express.json());
 app.use(cookieParser());
 

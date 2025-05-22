@@ -27,7 +27,7 @@ export const loginService = async ({ email, password }) => {
     throw new Error('Invalid credentials');
   }
 
-  const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+  const accessToken = jwt.sign({ id: user._id }, process.env.JWT_ACCESS_SECRET, {
     expiresIn: '15m',
   });
 
