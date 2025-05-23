@@ -8,21 +8,21 @@ const {
   JWT_REFRESH_EXPIRES_IN = '7d',
 } = process.env;
 
-//Generate a short-lived access token.
+// Generate a short-lived access token.
 
 export const generateAccessToken = (userId) =>
   jwt.sign({ id: userId }, JWT_ACCESS_SECRET, {
-    expiresIn: '10m',
+    expiresIn: '15m',
   });
 
-//Generate a long-lived refresh token with a unique JTI.
-
+//  Generate a long-lived refresh token with a unique JTI.
+ 
 export const generateRefreshToken = (userId) =>
   jwt.sign({ id: userId, jti: uuidv4() }, JWT_REFRESH_SECRET, {
     expiresIn: "7d",
   });
 
-//Verify a refresh token and return its decoded payload.
-
+  // Verify a refresh token and return its decoded payload.
+ 
 export const verifyRefreshToken = (token) =>
   jwt.verify(token, JWT_REFRESH_SECRET);
