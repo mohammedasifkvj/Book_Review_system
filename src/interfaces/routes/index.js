@@ -11,6 +11,6 @@ const router = express.Router();
 router.use('/', authRoutes);
 router.use('/books', bookRoutes);
 router.use('/reviews', reviewRoutes);
-router.use('/search', searchRoutes);   // /api/search?q=...
+router.use('/search', searchRoutes);   //search?q=title  or search?q=author
 
 export default router;

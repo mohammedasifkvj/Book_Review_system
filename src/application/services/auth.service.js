@@ -19,7 +19,7 @@ export const signupService = async ({ name, email, password }) => {
 export const loginService = async ({ email, password }) => {
   const user = await User.findOne({ email });
   if (!user) {
-    throw new Error('Invalid credentials');
+    throw new Error('You are not a registerd user');
   }
 
   const isMatch = await bcrypt.compare(password, user.password);

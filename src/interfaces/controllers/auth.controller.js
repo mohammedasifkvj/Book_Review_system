@@ -12,7 +12,7 @@ export const signupController = async (req, res) => {
 export const loginController = async (req, res) => {
   try {
     const { accessToken, refreshToken } = await loginService(req.body);
-    console.log(accessToken,refreshToken)
+    // console.log("Token from controller",accessToken,refreshToken)
 
     // Set refresh token in httpOnly cookie
     res
