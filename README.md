@@ -1,5 +1,3 @@
-
-```markdown
 # Book Review API
 
 A RESTful Book Review API built using **Node.js**, **Express.js**, **MongoDB**, and **JWT authentication** (access and refresh tokens). The project follows **Clean Architecture** for better maintainability and scalability.
@@ -16,25 +14,79 @@ A RESTful Book Review API built using **Node.js**, **Express.js**, **MongoDB**, 
 - **Security:** HTTP-only cookies for refresh token, rate limiting, helmet
 
 ---
-```
+```bash
 
-src/
-├── application/
-│   └── use-case/
-├── config/
-├── domain/
-│   ├── entities/
-│   └── models/
-├── infrastructure/
-│   ├── middleware/
-│   └── repositories/
-├── interfaces/
-│   ├── controllers/
-│   └── routes/
-├── services/
-├── utils/
-├── app.js
-└── server.js
+Book_Review_System/
+│
+├── src/
+│   ├── config/
+│   │     ├── cors.config.js
+│   │     ├── rateLimit.config.js
+│   │     
+│   ├── domain/
+│   │   ├── entities/
+│   │   │    ├── book.entity.js
+│   │   │    ├── review.entity.js
+│   │   │    └── user.entity.js
+│   │   │    
+│   │   └── models/
+│   │        ├──book.model.js
+│   │        ├──review.model.js
+│   │        └──user.model.js
+│   │
+│   ├── infrastructure/
+│   │   ├── database/
+│   │   │    └── mongo.js
+│   │   │
+│   │   └── repositories/
+│   │        ├──book.repository.js
+│   │        ├──review.repository.js
+│   │        ├──search.repository.js
+│   │        └──user.repository.js
+│   │
+│   ├── application/
+│   │   ├── services/
+│   │   │    ├──auth.service.js
+│   │   │    ├──book.service.js
+│   │   │    ├──review.service.js
+│   │   │    └──search.service.js
+│   │   │
+│   │   └── use-cases/
+│   │        ├──auth.usecase.js
+│   │        ├──book.usecase.js
+│   │        ├──review.usecase.js
+│   │        └──search.usecase.js
+│   │
+│   ├── interfaces/
+│   │   ├── controllers/
+│   │   │    ├──auth.controller.js
+│   │   │    ├──book.controller.js
+│   │   │    ├──review.controller.js
+│   │   │    └──search.controller.js
+│   │   │
+│   │   ├── middlewares/
+│   │   │    ├──auth.middleware.js
+│   │   │    └──error.middleware.js
+│   │   │
+│   │   └── routes/
+│   │        ├──index.js
+│   │        ├──auth.routes.js
+│   │        ├──book.routes.js
+│   │        ├──review.routes.js
+│   │        └──search.routes.js
+│   │
+│   ├── utils/
+│   │     ├──pagination.utils.js
+│   │     └──token.utils.js
+│   │
+│   └── index.js
+│
+├── .env
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+└── schema-design.md
 
 ````
 
@@ -183,8 +235,8 @@ Search by book title or author name (case-insensitive)
 * Input validation is handled with **Joi** middleware.
 
 ---
-## 📧 Contact
+## Contact
 
 For questions, feel free to raise an issue or connect via GitHub.
 
-```
+---
