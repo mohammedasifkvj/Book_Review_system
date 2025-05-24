@@ -55,6 +55,6 @@ export const authenticateToken = async (req, res, next) => {
     }
   });
   } catch (err) {
-    return res.status(403).json({ message: 'Internal server error from middleware' });
+    return res.status(403).json({ message: err.message });
   }
 };

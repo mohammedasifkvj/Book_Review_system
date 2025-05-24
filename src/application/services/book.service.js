@@ -57,6 +57,12 @@ export const getBookByIdService = async (id, page = 1) => {
 };
 
 export const addReviewService = async (bookId, data, user) => {
+  // Check is book exist
+  const book = await Book.findById(bookId);
+  if (!book) {
+    throw new Error('Book not found');
+  }
+  // check is book already reviwed by the user
   const existingReview = await Review.findOne({ book: bookId, user: user._id });
   if (existingReview) {
     throw new Error('You have already reviewed this book');
