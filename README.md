@@ -93,6 +93,8 @@ The server will run on `http://localhost:8000`
 
 #### POST `/books` (Protected)
 
+Important: For protected routes, do not forget to paste the access token as Bearer Token in the Auth section
+
 ```json
 {
   "title": "Clean Code",
