@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../../domain/models/user.model.js';
-import { generateRefreshToken } from '../../utils/token.utils.js';
+import { generateAccessToken, generateRefreshToken } from '../../utils/token.utils.js';
 
 export const signupService = async ({ name, email, password }) => {
   const existingUser = await User.findOne({ email });
@@ -26,7 +26,7 @@ export const loginService = async ({ email, password }) => {
   if (!isMatch) {
     throw new Error('Invalid credentials');
   }
-  
+
   const accessToken = jwt.sign({ id: user._id }, process.env.JWT_ACCESS_SECRET, {
     expiresIn: '15m',
   });
