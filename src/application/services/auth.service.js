@@ -26,12 +26,18 @@ export const loginService = async ({ email, password }) => {
   if (!isMatch) {
     throw new Error('Invalid credentials');
   }
-
+  
   const accessToken = jwt.sign({ id: user._id }, process.env.JWT_ACCESS_SECRET, {
     expiresIn: '15m',
   });
 
   const refreshToken = generateRefreshToken(user._id);
 
+  return { accessToken, refreshToken };
+};
+
+export const generateTokens = async (user) => {
+  const accessToken = await generateAccessToken(user._id);
+  const refreshToken = await generateRefreshToken(user._id);
   return { accessToken, refreshToken };
 };
