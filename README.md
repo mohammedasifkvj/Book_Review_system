@@ -41,7 +41,7 @@ MONGO_URI=mongodb://localhost:27017/Book_Review_System
 
 JWT_ACCESS_SECRET=access_secret
 JWT_REFRESH_SECRET=refresh_secret
-JWT_ACCESS_EXPIRES_IN =15m,
+JWT_ACCESS_EXPIRES_IN =15m
 REFRESH_TOKEN_EXPIRES_IN =7d
 ```
 
